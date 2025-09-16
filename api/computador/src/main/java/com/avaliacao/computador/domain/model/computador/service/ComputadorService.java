@@ -3,7 +3,6 @@ package com.avaliacao.computador.domain.model.computador.service;
 import com.avaliacao.computador.domain.model.computador.model.Computador;
 import com.avaliacao.computador.domain.model.computador.repository.ComputadorRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.util.LambdaSafe;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,7 +38,6 @@ public class ComputadorService {
     @Transactional
     public void deleteComputador(Long computadorId) {
         var computadorExistente = this.getComputadorById(computadorId);
-        // Dissociate all Perifericos
         if (computadorExistente.getPerifericos() != null) {
             computadorExistente.getPerifericos().forEach(periferico -> periferico.setComputador(null));
             computadorExistente.getPerifericos().clear();
