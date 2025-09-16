@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="create-table-computador" author="daniel.risardi">
+        <createTable tableName="computador">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="nome" type="varchar(255)"/>
+            <column name="cor" type="varchar(255)"/>
+            <column name="dataFabricacao" type="int"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-table-periferico" author="daniel.rissardi">
+        <createTable tableName="periferico">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="nome" type="varchar(255)"/>
+            <column name="computador_id" type="int"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
